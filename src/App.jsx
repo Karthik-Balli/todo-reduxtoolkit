@@ -1,9 +1,11 @@
 import React from 'react';
+import AddTodo from './components/AddTodo'
 
 const App = () => {
   return (
     <div>
-      Hola App
+      Learn about redux toolkit
+      <AddTodo />
     </div>
   )
 }

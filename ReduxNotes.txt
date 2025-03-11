@@ -1,0 +1,60 @@
+*** A Redux guide for this project, that contains about this project as notes.
+
+Let's understand about the redux
+
+React Redux :
+- React Redux is a state management library, that helps you to manage global state in a react application.
+- It provides a centaralized store, where all the state is kept, making it easier to manage and share data between components.
+
+Redux advantages:
+- Global state management
+- Predictable state updates
+- Easier debugging
+- works well with large applications
+
+How Redux work in react(Redux flow):
+- Redux follows a unidirectional data flow.
+- the jargons that are used in Redux:
+    1. Store - A central place where all state is stored.
+    2. Actions - Plain JavaScript objects that describe what should happen (e.g., increment a counter).
+    3. Reducers - Functions that modify the state based on the action recieved.
+
+
+- Data flow in redux:
+1. A component dispatches an action (e.g., { type: "INCREMENT" }).
+2. The action is handled by the reducer, which updates the state.
+3. The updated state is stored in the Redux store and passed to components.
+ 
+
+*** Redux code implementation ***
+1. configure store
+    - this is the central place called as store, where all state are stored
+
+    > /app/store.js 
+    import { configureStore } from '@reduxjs/toolkit';
+
+    export default configureStore({});
+
+2. Creating a slice 
+    - a slice means a part of the redux store
+
+    > /features/todo/todoSlice.js
+    import { createSlice } from '@reduxjs/toolkit';
+
+    const intialState = {
+        const todos = [];
+    }
+
+    export const todoSlice = createSlice({
+        name: 'todo',
+        intialState,
+        reducers: {
+            addToDo : (state, action) => {
+                const todo = {
+                    id: nanoid(),
+                    text: action.payload,
+                }
+                state.todos.push(todo);
+            }
+        }
+    })
